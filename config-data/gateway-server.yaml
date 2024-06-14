@@ -1,0 +1,39 @@
+server:
+  port: 8080
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch.registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+      routes:
+        - id: ms-vehicle
+          uri: lb://ms-vehicle:8090
+          predicates:
+            - Path=/vehicles/**
+        - id: ms-vehicle_repair
+          uri: lb://ms-vehicle_repair:8092
+          predicates:
+            - Path=/vehicles_repair/**
+        - id: ms-repair_list
+          uri: lb://ms-repair_list:8091
+          predicates:
+            - Path=/repair_list/**
+        - id: ms-reports
+          uri: lb://ms-reports:8093
+          predicates:
+            - Path=/reports/**
