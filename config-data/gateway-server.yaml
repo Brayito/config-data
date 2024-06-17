@@ -37,3 +37,7 @@ spring:
           uri: lb://ms-reports
           predicates:
             - Path=/reports/**
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.reactive.handler: DEBUG
