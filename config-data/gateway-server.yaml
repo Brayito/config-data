@@ -22,18 +22,18 @@ spring:
             allowedHeaders: "*"
       routes:
         - id: ms-vehicle
-          uri: lb://ms-vehicle:8090
+          uri: lb://ms-vehicle
           predicates:
             - Path=/vehicles/**
         - id: ms-vehicle_repair
-          uri: lb://ms-vehicle_repair:8092
+          uri: lb://ms-vehicle_repair
           predicates:
             - Path=/vehicles_repair/**
         - id: ms-repair_list
-          uri: lb://ms-repair_list:8091
+          uri: lb://ms-repair_list
           predicates:
             - Path=/repair_list/**
         - id: ms-reports
-          uri: lb://ms-reports:8093
+          uri: lb://ms-reports
           predicates:
             - Path=/reports/**
