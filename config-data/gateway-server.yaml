@@ -14,29 +14,15 @@ spring:
       discovery:
         locator:
           enabled: true
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: "*"
-            allowedMethods: "*"
-            allowedHeaders: "*"
       routes:
         - id: ms-vehicle
           uri: lb://ms-vehicle
           predicates:
             - Path=/vehicles/**
-        - id: ms-vehicle_repair
-          uri: lb://ms-vehicle_repair
+        - id: static-ms-vehicle
+          uri: http://localhost:8090
           predicates:
-            - Path=/vehicles_repair/**
-        - id: ms-repair_list
-          uri: lb://ms-repair_list
-          predicates:
-            - Path=/repair_list/**
-        - id: ms-reports
-          uri: lb://ms-reports
-          predicates:
-            - Path=/reports/**
+            - Path=/static-vehicles/**
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
