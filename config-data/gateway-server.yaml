@@ -19,10 +19,18 @@ spring:
           uri: lb://ms-vehicle
           predicates:
             - Path=/vehicles/**
-        - id: static-ms-vehicle
-          uri: http://localhost:8090
+        - id: ms-repair_list
+          uri: lb://ms-repair_list
           predicates:
-            - Path=/static-vehicles/**
+            - Path=/repairs/**
+        - id: ms-reports
+          uri: lb://ms-reports
+          predicates:
+            - Path=/reports/**
+        - id: ms-vehicle_repair
+          uri: lb://ms-vehicle_repair
+          predicates:
+            - Path=/vehicle_repairs/**
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
