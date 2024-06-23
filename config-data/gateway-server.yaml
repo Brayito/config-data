@@ -19,7 +19,7 @@ spring:
           uri: lb://ms-vehicle
           predicates:
             - Path=/vehicles/**
-        - id: ms-repair_list
+        - id: ms-repairs
           uri: lb://ms-repair_list
           predicates:
             - Path=/repairs/**
