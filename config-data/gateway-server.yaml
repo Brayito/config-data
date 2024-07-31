@@ -28,18 +28,18 @@ spring:
           uri: lb://ms-vehicle
           predicates:
             - Path=/vehicles/**
-        - id: ms-repair_list
-          uri: lb://ms-repair_list
+        - id: ms-repairs
+          uri: lb://ms-repairs
           predicates:
             - Path=/repairs/**
         - id: ms-reports
           uri: lb://ms-reports
           predicates:
             - Path=/reports/**
-        - id: ms-vehicle_repair
-          uri: lb://ms-vehicle_repair
+        - id: ms-vehicleRepair
+          uri: lb://ms-vehicleRepair
           predicates:
-            - Path=/vehicle_repairs/**
+            - Path=/reparation/**
 logging:
   level:
     org.springframework.cloud.gateway: DEBUG
